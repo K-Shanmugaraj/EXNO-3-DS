@@ -45,16 +45,17 @@ We use this categorical data encoding technique when the features are nominal(do
 • Yeojohnson method
 
 ## CODING AND OUTPUT:
-### Developed by : Priyanka.A
-### Reg No : 212222230113
+### Developed by : Shanmuga Raj.K
+### Reg No : 212223040192
 
 ```python
 
 import pandas as pd
-df=pd.read_csv("Encoding Data.csv")
+df=pd.read_csv("/content/Encoding Data.csv")
 df
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/12381f5d-89ba-489d-8d6c-91930b7cb65a)
+![image](https://github.com/user-attachments/assets/bc70d3db-1f90-4721-b768-5969a1d0e4fa)
+
 
 
 ```py
@@ -63,14 +64,15 @@ pm=['Hot','Warm','Cold']
 e1=OrdinalEncoder(categories=[pm])
 e1.fit_transform(df[["ord_2"]])
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/a0826cf9-8f9d-4844-8198-5808e9539fa5)
+![image](https://github.com/user-attachments/assets/ac4e4519-861a-47a2-9c82-19d0c705c138)
 
 
 ```py
 df['bo2']=e1.fit_transform(df[["ord_2"]])
 df
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/448447cf-f983-4fdb-a37b-54e517ed5572)
+![image](https://github.com/user-attachments/assets/87c37747-afeb-4fde-b37a-f0cfdd55eb3f)
+
 
 
 ```py
@@ -79,11 +81,12 @@ dfc=df.copy()
 dfc['ord_2']=le.fit_transform(dfc['ord_2'])
 dfc
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/a91af21f-6723-443b-b884-d199935ca8a3)
+![image](https://github.com/user-attachments/assets/a3c8d57c-6f69-4590-b166-bd375794478f)
+
 
 ```py
 from sklearn.preprocessing import OneHotEncoder
-ohe=OneHotEncoder(sparse=False)
+ohe=OneHotEncoder(sparse_output=False)
 df2=df.copy()
 enc=pd.DataFrame(ohe.fit_transform(df2[["nom_0"]]))
 ```
@@ -94,14 +97,14 @@ df2=pd.concat([df2,enc],axis=1)
 df2
 ```
 
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/19d9c74d-8463-4ac3-afd4-d983418a8530)
+![image](https://github.com/user-attachments/assets/8722da97-cd2d-49ff-9661-e1448db02ac7)
 
 
 
 ```py
 pd.get_dummies(df2,columns=["nom_0"])
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/17b96833-f77a-4bfe-a9ee-d9f973d2a145)
+![image](https://github.com/user-attachments/assets/62bdf6c7-46ec-4e67-b22a-3a5a950d5795)
 
 
 ```py
@@ -110,9 +113,10 @@ pip install --upgrade category_encoders
 
 ```py
 from category_encoders import BinaryEncoder
-df=pd.read_csv("data.csv")
+df=pd.read_csv("/content/data.csv")
 df
 ```
+![image](https://github.com/user-attachments/assets/fa26c6fa-45ff-46c2-855b-68f0cad32bd5)
 
 
 ```py
@@ -120,13 +124,14 @@ be=BinaryEncoder()
 nd=be.fit_transform(df['Ord_2'])
 df
 ```
+![image](https://github.com/user-attachments/assets/e7e28c03-3a74-43b5-9bd9-dad4807729fc)
 
 
 ```py
 dfb=pd.concat([df,nd],axis=1)
 dfb
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/ae9b507b-9516-4cee-baa6-f5542515581f)
+![image](https://github.com/user-attachments/assets/5bcb1603-df4f-4eb2-ac93-e0ea8d16fbe1)
 
 
 
@@ -138,7 +143,7 @@ new=te.fit_transform(X=CC["City"],y=CC["Target"])
 CC=pd.concat([CC,new],axis=1)
 CC
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/60889044-c6c5-4df3-bf2f-66add4552f55)
+![image](https://github.com/user-attachments/assets/2c61dd20-c7fb-48d3-9785-9200ffff2962)
 
 
 ```py
@@ -148,58 +153,63 @@ import numpy as np
 df=pd.read_csv("Data_to_Transform.csv")
 df
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/bd6620d9-48c8-4aee-a628-159e85a4214b)
+![image](https://github.com/user-attachments/assets/65c769e4-a98d-475a-aee5-ae2b1928138d)
+
 
 
 ```py
 df.skew()
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/a9e0fee1-451c-4885-8055-6b2baf5d5d08)
+![image](https://github.com/user-attachments/assets/c0d9db52-d7fc-4ae9-827a-9ec6c1e39f9b)
+
 
 
 ```py
 np.log(df["Highly Positive Skew"])
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/9d20113a-213b-447e-b70e-d5d5d4d73ba4)
+![image](https://github.com/user-attachments/assets/cc4ebbdb-43ea-4d8e-b06b-dacc8d20a84a)
 
 
 ```py
 np.reciprocal(df["Moderate Positive Skew"])
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/586c8338-b6a6-499b-8b51-ec4bc443583f)
+![image](https://github.com/user-attachments/assets/2d69c58b-ef94-430b-8cbf-81d8e7ae4f8b)
+
 
 
 
 ```py
 np.sqrt(df["Highly Positive Skew"])
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/53aa0d66-2963-47b3-b0bc-b48c0fe4e05a)
+![image](https://github.com/user-attachments/assets/0d5bfe58-2dfe-4a5e-9586-307feceaf22b)
 
 
 ```py
 np.square(df["Highly Positive Skew"])
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/6bf5b6c6-f697-4ca6-8c97-6167d0a45fa8)
+![image](https://github.com/user-attachments/assets/014d5a25-ee94-4714-abb4-38a731969e87)
 
 
 ```py
 df["Highly Positive Skew_boxcox"], parameters=stats.boxcox(df["Highly Positive Skew"])
 df
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/b57d72a9-7e5f-4670-a02f-0ff73104d24f)
+![image](https://github.com/user-attachments/assets/278191c9-8f79-4d36-bcdd-25c54a519640)
 
 
 ```py
 df.skew()
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/09de5543-18fc-4968-8aa9-1082f8610b8d)
+![image](https://github.com/user-attachments/assets/62341ebd-a9ec-4f3b-a777-676d381197bd)
+
 
 
 ```py
 df["Highly Negative Skew_yeojohnson"],parameters=stats.yeojohnson(df["Highly Negative Skew"])
 df.skew()
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/5a2f96dc-6105-4cd7-aa27-69a1893c0cdc)
+![image](https://github.com/user-attachments/assets/a5ff57a4-6832-44db-8145-4386e5c43645)
+
 
 ```py
 from sklearn.preprocessing import QuantileTransformer
@@ -207,7 +217,7 @@ qt=QuantileTransformer(output_distribution='normal')
 df["Moderate Negative Skew_1"]=qt.fit_transform(df[["Moderate Negative Skew"]])
 df
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/092734aa-52a6-4b13-b25f-d9cf2d8eb45d)
+![image](https://github.com/user-attachments/assets/5743b2dc-4199-4261-ac61-93129f4e9ae9)
 
 ```py
 import seaborn as sns
@@ -216,7 +226,7 @@ import matplotlib.pyplot as plt
 sm.qqplot(df["Moderate Negative Skew"],line='45')
 plt.show()
 ```
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/45da37db-b7e8-4866-bbcd-ff6b9b429557)
+![image](https://github.com/user-attachments/assets/65b553a2-946d-4d42-97ed-3149646c86e3)
 
 
 ```py
@@ -224,7 +234,8 @@ sm.qqplot(np.reciprocal(df["Moderate Negative Skew"]),line='45')
 plt.show()
 ```
 
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/8d5490fa-4651-47c8-bd6f-d42bc6c8bb1c)
+![image](https://github.com/user-attachments/assets/dd693f3a-54e6-4bba-a5d1-649b12cdff7d)
+
 
 
 
@@ -238,7 +249,7 @@ sm.qqplot(df["Moderate Negative Skew"],line='45')
 plt.show()
 ```
 
-![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/9cc1839f-34f1-47e5-a757-bb4540a4cd2f)
+![image](https://github.com/user-attachments/assets/1e25c63d-c7d3-490e-82e6-76b6572c47e6)
 
 
 
@@ -248,13 +259,13 @@ sm.qqplot(df["Highly Negative Skew"],line='45')
 plt.show()
 ```
 
-![319878460-6f7a4eaa-1c54-4409-8b57-8b407d5842f7](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/5d511ce4-1999-414c-84a6-d3989e63aa6e)
-
+![image](https://github.com/user-attachments/assets/2ee2d713-95d2-40f6-96f9-abb835636c14)
 
 ```py
 dt=pd.read_csv("titanic_dataset.csv")
 dt
 ```
+![image](https://github.com/user-attachments/assets/4521fb8e-a1ff-4aa1-a9bd-41ad7d466cf4)
 
 ```py
 from sklearn.preprocessing import QuantileTransformer
@@ -263,14 +274,16 @@ dt["Age_1"]=qt.fit_transform(dt[["Age"]])
 sm.qqplot(dt['Age'],line='45') 
 plt.show()
 ```
-![319878630-e2ff6572-cb52-434f-8d9a-980843e1a1b9](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/33e7bf1e-09f0-41cf-9733-bc39e2a82947)
+![image](https://github.com/user-attachments/assets/b7a3b5f6-265c-4e7a-a2b2-d9e1ec9dd199)
+
 
 ```py
 sm.qqplot(df["Highly Negative Skew_1"],line='45')
 plt.show()
 ```
 
-![319878540-d5c66705-7e21-4a6b-8bc7-a9e1ca23ae85](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/f0d0c362-034d-4938-8b05-9dcddd9c94b6)
+![image](https://github.com/user-attachments/assets/a9858d5e-0e88-498f-acda-e058a4598812)
+
 
 
 
